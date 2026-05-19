@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+     <meta charset="UTF-8">
+     <title>Acceuil de mon site</title>
+     <meta name="viewport" content="width=device=width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page">
+        <header>
+            
+    <h1>Mon mini-site web</h1>
+    </header>
+    <nav>
+        <a href="index.html">acceuil</a>
+        <a href="presentation.html">Presentation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <main>
+            <section class="carte">
+
+            <h2>Message dynamique avec javascript</h2>
+            <p>Cette zone permet d'afficher un message personnalisé selon le nom et le domaine d'intéret</p>
+            <label for="nomUtilisateur">Entrez votre nom:</label>
+            <input type="text" id="nomUtilisateur" placeholder="Exemple: Yannick">
+            <label for="domaineUtilisateur">Choisissez votre domaine d'intéret</label>
+            <select id="domaineUtilisateur">
+                <option value="">Choisir un domaine</option>
+                <option value="réseaux informatiques">Réseaux informatiqes</option>
+                <option value="cybersécurité">Cybersécurité</option>
+                <option value="developpement web">Développement web</option>
+                <option value="administration systeme">Administration système</option>
+
+            </select>
+            <button onclick="afficherMessage()">Afficher le message</button>
+            <button onclick="effacerMessage()">Effacer</button>
+            <p id="messageResultat"></p>
+            </section>
+            
+            <h2>Bienvenue</h2>
+            
+            <p>Ce mini-site été créé dans le cadre du cours de TP programmation web</p>
+            <div class="carte">
+            </div>
+            <div class="carte">
+                <h2>RESPONSIVE DESIGN</h2>
+                <P>Le responsive design permet d'adapter automatiquement l'affichage d'un site au different ecran</P>
+            </div>
+
+            <p>Ce site à été améliorer avec flexbox pour une meilleur organisation</p>
+        </main>
+        <aside>
+            
+            <h2>Objectif du mini-site</h2>
+            <p>cette zone de page va contenir les informations supplementaires </p>
+        </aside>
+    </div>
+    <footer>
+        <p> © 2026 - Mon mini site</p>
+    </footer>
+    </div>
+    <script>
+        function afficherMessage(){
+            let nom = document.getElementById("nomUtilisateur").value;
+            let domaine = document.getElementById("domaineUtilisateur").value;
+            let message = "";
+            if (nom===""&&domaine===""){
+                message = "veuiller saisir votre nom et choisir un domaine est d'intéret.";
+            }else if (nom==="") {
+                message = "veuiller saisir votre nom ."
+            } else if(domaine===""){
+                message = "Veuillez choisir un domaine d'intéret"
+            }else{
+                message = "Bienvenu " + nom + " .Votre domaine d'intéret est : " + domaine + ".";
+            }
+            document.getElementById("messageResultat").textContent=message;
+        }
+        function effacerMessage(){
+            document.getElementById("nomUtilisateur").value;
+            document.getElementById("domaineUtilisateur").value;
+            document.getElementById("messageResultat").textContent = "";
+        }
+    </script>
+</body>
+</html>
